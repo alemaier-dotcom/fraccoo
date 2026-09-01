@@ -31,7 +31,7 @@
     --grw-tint:#E4F6EF;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; scroll-padding-top:90px;}
   body{
     background:var(--bg);
     color:var(--text);
@@ -68,6 +68,10 @@
 
   /* ---------- header ---------- */
   header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--bg);
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -110,7 +114,28 @@
   /* ---------- hero ---------- */
   .hero{
     padding:9vh 6vw 8vh;
-    max-width:1100px;
+    max-width:1160px;
+    display:grid;
+    grid-template-columns:minmax(280px,1.3fr) minmax(220px,1fr);
+    gap:56px;
+    align-items:center;
+  }
+  .hero-photo{
+    width:100%;
+    aspect-ratio:4 / 5;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;}
+    .hero-photo{max-width:320px; margin:0 auto;}
   }
   .hero .eyebrow{
     font-family:'IBM Plex Mono', monospace;
@@ -575,14 +600,19 @@
 </header>
 
 <section class="hero">
-  <span class="eyebrow" data-lang="en">Fractional COO for your software delivery</span>
-  <span class="eyebrow" data-lang="es">Fractional COO para el delivery de tu software</span>
+  <div class="hero-text">
+    <span class="eyebrow" data-lang="en">Fractional COO for your software delivery</span>
+    <span class="eyebrow" data-lang="es">Fractional COO para el delivery de tu software</span>
 
-  <h1 data-lang="en">Protecting your <em>software delivery</em> and growing your <em>most important</em> client relationships.</h1>
-  <h1 data-lang="es">Protejo <em>tus entregas de software</em> y hago crecer tus relaciones <em>más importantes</em> con clientes.</h1>
+    <h1 data-lang="en">Protecting your <em>software delivery</em> and growing your most important <em>client relationships</em>.</h1>
+    <h1 data-lang="es">Protejo <em>tus entregas de software</em> y hago crecer tus más importantes <em>relaciones con clientes</em>.</h1>
 
-  <p class="sub" data-lang="en">I step in fractionally to strengthen delivery, sharpen commercial discipline, and support account growth — giving software consulting and delivery firms senior operating leadership without the cost of a full-time hire.</p>
-  <p class="sub" data-lang="es">Me sumo de forma fraccional para fortalecer el delivery, afinar la disciplina comercial y acompañar el crecimiento de cuentas — llevando liderazgo operativo senior a firmas de consultoría y delivery de software, sin el costo de una contratación a tiempo completo.</p>
+    <p class="sub" data-lang="en">I step in fractionally to strengthen delivery, sharpen commercial discipline, and support account growth — giving software consulting and delivery firms senior operating leadership without the cost of a full-time hire.</p>
+    <p class="sub" data-lang="es">Me sumo de forma fraccional para fortalecer el delivery, afinar la disciplina comercial y acompañar el crecimiento de cuentas — llevando liderazgo operativo senior a firmas de consultoría y delivery de software, sin el costo de una contratación a tiempo completo.</p>
+  </div>
+  <div class="hero-photo">
+    <img src="alejandro-photo.jpg" alt="Alejandro Maierowicz" />
+  </div>
 </section>
 
 <section class="offerings" id="offerings">

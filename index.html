@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alejandro Maierowicz — Fractional COO</title>
+<meta name="description" content="Fractional COO for software consulting & delivery firms. Protecting your software delivery and growing your most important client relationships.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alejandro Maierowicz — Fractional COO">
+<meta property="og:description" content="I step in fractionally to strengthen delivery, sharpen commercial discipline, and support account growth — giving software consulting and delivery firms senior operating leadership without the cost of a full-time hire.">
+<meta property="og:image" content="https://frac-coo.com/alejandro-photo.jpg">
+<meta property="og:url" content="https://frac-coo.com">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alejandro Maierowicz — Fractional COO">
+<meta name="twitter:description" content="I step in fractionally to strengthen delivery, sharpen commercial discipline, and support account growth — giving software consulting and delivery firms senior operating leadership without the cost of a full-time hire.">
+<meta name="twitter:image" content="https://frac-coo.com/alejandro-photo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -296,6 +309,8 @@
     padding:24px;
     display:flex;
     flex-direction:column;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
   }
   .flip-front{
     background:var(--surface);
@@ -575,6 +590,7 @@
     header{flex-direction:column; align-items:flex-start; gap:14px;}
     .header-right{width:100%; justify-content:space-between;}
     nav a{margin-left:0; margin-right:20px;}
+    .card-grid{gap:16px;}
   }
 </style>
 </head>
@@ -611,7 +627,7 @@
     <p class="sub" data-lang="es">Me sumo de forma fraccional para fortalecer el delivery, afinar la disciplina comercial y acompañar el crecimiento de cuentas — llevando liderazgo operativo senior a firmas de consultoría y delivery de software, sin el costo de una contratación a tiempo completo.</p>
   </div>
   <div class="hero-photo">
-    <img src="alejandro-photo.jpg" alt="Alejandro Maierowicz" />
+    <img src="https://frac-coo.com/alejandro-photo.jpg" alt="Alejandro Maierowicz" />
   </div>
 </section>
 
@@ -667,7 +683,7 @@
             <ul data-lang="es">
               <li><b>Ejecución de proyectos de software</b></li>
               <li><b>Diseño de gobernanza de delivery</b> — roles claros, vías de escalamiento, cadencia</li>
-              <li><b>Estabilización de programas y recuperación de escalamientos</b> — reconstruir la confianza en una cuenta en crisis</li>
+              <li><b>Estabilización de programas escalados</b> — reconstruir la confianza durante una crisis</li>
             </ul>
             <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
             <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
@@ -771,7 +787,7 @@
               <li><b>Change management</b> — controlling scope drift through the engagement</li>
             </ul>
             <ul data-lang="es">
-              <li><b>Definición de producto y alcance</b> — proyectos bien delimitados desde el día uno</li>
+              <li><b>Definición de producto y alcance</b> — bien delimitados desde el día uno</li>
               <li><b>Diseño de solución y del acuerdo</b> — efectiva estructura del contrato</li>
               <li><b>Gestión de cambios</b> — controlar el desvío de alcance durante el proyecto</li>
             </ul>
@@ -1030,14 +1046,14 @@
           </div>
           <div class="flip-face flip-back">
             <ul data-lang="en">
-              <li><b>Contract structuring &amp; negotiation</b> — staff aug and managed teams</li>
+              <li><b>Contract structuring &amp; negotiation</b></li>
               <li><b>Renewal &amp; renegotiation strategy</b> — defend pricing, realign scope</li>
               <li><b>Commercial model transformation</b> — convert staff aug to managed teams</li>
             </ul>
             <ul data-lang="es">
-              <li><b>Estructuración y negociación de contratos</b> — staff augmentation y equipos administrados</li>
+              <li><b>Estructuración y negociación de contratos</b></li>
               <li><b>Estrategia de renovación y renegociación</b> — defender el precio, realinear el alcance</li>
-              <li><b>Transformación del modelo comercial</b> — convertir staff augmentation en equipos administrados</li>
+              <li><b>Transformación del modelo comercial</b> — de staff augmentation a equipos administrados</li>
             </ul>
             <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
             <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
@@ -1135,6 +1151,49 @@
     card.addEventListener('keydown', function(e){
       if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
     });
+  });
+</script>
+
+<script>
+  function fitFlipCardHeights(){
+    var cards = document.querySelectorAll('.flip-card');
+    if(!cards.length) return;
+    cards.forEach(function(card){
+      var width = card.getBoundingClientRect().width;
+      if(!width) return;
+      var cardMaxH = 0;
+      card.querySelectorAll('.flip-face').forEach(function(face){
+        var clone = face.cloneNode(true);
+        clone.style.position = 'static';
+        clone.style.visibility = 'hidden';
+        clone.style.pointerEvents = 'none';
+        clone.style.width = width + 'px';
+        clone.style.height = 'auto';
+        clone.style.overflow = 'visible';
+        clone.style.transform = 'none';
+        document.body.appendChild(clone);
+        var h = clone.offsetHeight;
+        if(h > cardMaxH) cardMaxH = h;
+        document.body.removeChild(clone);
+      });
+      if(cardMaxH > 0){
+        card.style.height = Math.ceil(cardMaxH) + 'px';
+      }
+    });
+  }
+
+  window.addEventListener('load', fitFlipCardHeights);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(fitFlipCardHeights);
+  }
+  var cardResizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(cardResizeTimer);
+    cardResizeTimer = setTimeout(fitFlipCardHeights, 150);
+  });
+  var langButtonsForResize = document.querySelectorAll('[data-lang-btn]');
+  langButtonsForResize.forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(fitFlipCardHeights, 20); });
   });
 </script>
 

@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Maierowicz — Fractional COO</title>
+<meta name="description" content="Fractional COO for software consulting & delivery firms. Protecting your software delivery and growing your most important client relationships.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alejandro Maierowicz — Fractional COO">
+<meta property="og:description" content="I step in fractionally to strengthen delivery, sharpen commercial discipline, and support account growth — giving software consulting and delivery firms senior operating leadership without the cost of a full-time hire.">
+<meta property="og:image" content="https://frac-coo.com/alejandro-photo.jpg">
+<meta property="og:url" content="https://frac-coo.com">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alejandro Maierowicz — Fractional COO">
+<meta name="twitter:description" content="I step in fractionally to strengthen delivery, sharpen commercial discipline, and support account growth — giving software consulting and delivery firms senior operating leadership without the cost of a full-time hire.">
+<meta name="twitter:image" content="https://frac-coo.com/alejandro-photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-2:#F7F7F4;
+    --surface:#FFFFFF;
+    --panel:#F5F5F1;
+    --text:#201F1C;
+    --text-2:#706F68;
+    --line:#E6E4DD;
+    --error:#D64545;
+
+    --del-mid:#F4A88C;
+    --del-dark:#C1572E;
+    --del-tint:#FBEAE1;
+
+    --ops-mid:#F5CE84;
+    --ops-dark:#A6740C;
+    --ops-tint:#FCF3DE;
+
+    --grw-mid:#92D9C3;
+    --grw-dark:#1F7A5C;
+    --grw-tint:#E4F6EF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scroll-padding-top:90px;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+  }
+  a{color:inherit;}
+
+  /* ---------- language toggle ---------- */
+  [data-lang="es"]{display:none !important;}
+  body.lang-es [data-lang="en"]{display:none !important;}
+  body.lang-es [data-lang="es"]{display:revert !important;}
+
+  .lang-switch{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+  }
+  .lang-switch button{
+    background:none;
+    border:none;
+    color:var(--text-2);
+    cursor:pointer;
+    padding:4px 6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+  }
+  .lang-switch button.active{color:var(--del-dark);}
+  .lang-switch .sep{color:var(--line);}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--bg);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 6vw;
+    border-bottom:1px solid var(--line);
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand .dot{width:8px; height:8px; background:var(--del-dark); border-radius:50%; display:inline-block;}
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:28px;
+  }
+  nav{display:flex; align-items:center;}
+  nav a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-decoration:none;
+    color:var(--text-2);
+    margin-left:28px;
+  }
+  nav a:hover{color:var(--del-dark);}
+  .nav-cta{
+    border:1px solid var(--text-2);
+    padding:8px 16px;
+    border-radius:20px;
+  }
+  .nav-cta:hover{border-color:var(--text);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:9vh 6vw 8vh;
+    max-width:1160px;
+    display:grid;
+    grid-template-columns:minmax(280px,1.3fr) minmax(220px,1fr);
+    gap:56px;
+    align-items:center;
+  }
+  .hero-photo{
+    width:100%;
+    aspect-ratio:4 / 5;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;}
+    .hero-photo{max-width:320px; margin:0 auto;}
+  }
+  .hero .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--text-2);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+  }
+  .hero .eyebrow::before{
+    content:"";
+    width:32px; height:1px; background:var(--text-2);
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(34px, 4.6vw, 56px);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    max-width:22ch;
+    color:var(--text);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--del-dark);
+  }
+  .hero p.sub{
+    margin-top:26px;
+    max-width:58ch;
+    font-size:18px;
+    color:var(--text-2);
+  }
+
+  /* ---------- section label ---------- */
+  .section-head{
+    padding:0 6vw;
+    max-width:1160px;
+    margin:0 auto;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(26px, 3vw, 34px);
+    color:var(--text);
+  }
+  .section-head p{
+    font-size:14px;
+    color:var(--text-2);
+    max-width:38ch;
+  }
+  .section-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-2);
+    margin-bottom:8px;
+    display:block;
+  }
+
+  /* ---------- legend ---------- */
+  .legend{
+    max-width:1160px;
+    margin:22px auto 0;
+    padding:0 6vw;
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--text-2);
+  }
+  .legend-dot{width:9px; height:9px; border-radius:50%; display:inline-block;}
+  .legend-item.del .legend-dot{background:var(--del-mid);}
+  .legend-item.ops .legend-dot{background:var(--ops-mid);}
+  .legend-item.grw .legend-dot{background:var(--grw-mid);}
+
+  /* ---------- offerings ---------- */
+  .offerings{
+    padding:6vh 0 10vh;
+    border-top:1px solid var(--line);
+    background:var(--bg-2);
+  }
+
+  .cat-panel{
+    max-width:1160px;
+    margin:5vh auto 0;
+    padding:38px 6vw 44px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+  }
+  .cat-panel:first-of-type{margin-top:5vh;}
+  .cat-panel + .cat-panel{
+    margin-top:36px;
+  }
+  .cat-panel-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:26px;
+    max-width:1040px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cat-panel-head .legend-dot{width:11px; height:11px;}
+  .cat-panel-head h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:23px;
+    color:var(--text);
+  }
+  .cat-panel-head span.count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--text-2);
+  }
+  .card-grid{
+    max-width:1040px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:22px;
+  }
+
+  /* ---------- flip cards ---------- */
+  .flip-card{
+    perspective:1400px;
+    height:260px;
+    cursor:pointer;
+  }
+  .flip-inner{
+    position:relative;
+    width:100%; height:100%;
+    transition:transform 0.6s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .flip-card.is-flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    border-radius:20px;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .flip-front{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:4px solid var(--cat-mid);
+    position:relative;
+  }
+  .flip-badge{
+    position:absolute;
+    top:16px; right:16px;
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--cat-tint);
+    color:var(--cat-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    line-height:1;
+    border:1px solid var(--cat-mid);
+  }
+  .flip-front h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:19px;
+    margin-top:4px;
+    line-height:1.22;
+    max-width:80%;
+    color:var(--text);
+  }
+  .flip-front .desc{
+    margin-top:10px;
+    font-size:13px;
+    color:var(--text-2);
+  }
+  .flip-front .flip-hint{
+    margin-top:auto;
+    align-self:flex-start;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:500;
+    font-size:11.5px;
+    color:var(--cat-dark);
+    background:var(--cat-tint);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:7px 12px;
+    border-radius:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .flip-back{
+    background:var(--cat-tint);
+    color:var(--text);
+    transform:rotateY(180deg);
+    justify-content:space-between;
+    border:1px solid var(--line);
+    border-top:4px solid var(--cat-mid);
+  }
+  .flip-back ul{
+    list-style:none;
+    font-size:12.5px;
+    color:var(--text-2);
+  }
+  .flip-back li{
+    padding-left:16px;
+    position:relative;
+    margin-bottom:9px;
+    line-height:1.38;
+  }
+  .flip-back li b{
+    color:var(--text);
+    font-weight:500;
+  }
+  .flip-back li::before{
+    content:"—";
+    position:absolute; left:0; color:var(--cat-dark);
+  }
+  .flip-back .flip-hint{
+    align-self:flex-start;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:500;
+    font-size:11.5px;
+    color:var(--text);
+    background:rgba(0,0,0,0.05);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:7px 12px;
+    border-radius:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  /* category color assignment */
+  .flip-card.cat-delivery{--cat-mid:var(--del-mid); --cat-dark:var(--del-dark); --cat-tint:var(--del-tint);}
+  .flip-card.cat-operations{--cat-mid:var(--ops-mid); --cat-dark:var(--ops-dark); --cat-tint:var(--ops-tint);}
+  .flip-card.cat-growth{--cat-mid:var(--grw-mid); --cat-dark:var(--grw-dark); --cat-tint:var(--grw-tint);}
+
+  /* ---------- about strip ---------- */
+  .about{
+    padding:9vh 6vw;
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:60px;
+  }
+  .about h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(24px,3vw,32px);
+    color:var(--text);
+  }
+  .about p{
+    color:var(--text-2);
+    font-size:16px;
+    margin-top:18px;
+  }
+  .about .role-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--text-2);
+    margin-top:22px;
+    letter-spacing:0.02em;
+  }
+  .about .stats{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+    align-content:start;
+  }
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-size:34px;
+    color:var(--del-dark);
+  }
+  .stat .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--text-2);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin-top:4px;
+  }
+  @media (max-width:720px){
+    .about{grid-template-columns:1fr;}
+  }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:var(--bg-2);
+    color:var(--text);
+    padding:10vh 6vw;
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  .contact h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(28px,4vw,42px);
+    max-width:24ch;
+    margin:0 auto;
+    color:var(--text);
+  }
+  .contact p{
+    margin-top:18px;
+    color:var(--text-2);
+    font-size:16px;
+  }
+  .contact .actions{
+    margin-top:36px;
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:13px;
+    letter-spacing:0.02em;
+    padding:14px 26px;
+    border-radius:24px;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .contact .btn-primary{background:var(--del-dark); color:var(--bg);}
+  .contact .btn-primary:hover{background:#D8663A;}
+  .contact .btn-ghost{border:1px solid var(--text-2); color:var(--text);}
+  .contact .btn-ghost:hover{border-color:var(--text); background:rgba(0,0,0,0.04);}
+
+  .contact-email{
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--text-2);
+    letter-spacing:0.02em;
+  }
+
+  .contact-form-wrap{
+    max-width:480px;
+    margin:34px auto 0;
+    text-align:left;
+  }
+  .contact-form .form-row{
+    margin-bottom:18px;
+  }
+  .contact-form label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--text-2);
+    margin-bottom:8px;
+  }
+  .contact-form input,
+  .contact-form textarea{
+    width:100%;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+    font-family:'Inter', sans-serif;
+    font-size:14px;
+    color:var(--text);
+    resize:vertical;
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder{color:var(--text-2);}
+  .contact-form input:focus,
+  .contact-form textarea:focus{
+    outline:none;
+    border-color:var(--del-mid);
+  }
+  .contact-form input[aria-invalid="true"],
+  .contact-form textarea[aria-invalid="true"]{
+    border-color:var(--error);
+  }
+  .contact-form .form-error{
+    display:block;
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--error);
+  }
+  .contact-form button[type="submit"]{
+    width:100%;
+    border:none;
+    cursor:pointer;
+  }
+  .contact-form button[disabled]{
+    opacity:0.6;
+    cursor:default;
+  }
+  .form-success{
+    display:none;
+    margin-bottom:18px;
+    padding:12px 16px;
+    border-radius:10px;
+    background:var(--grw-tint);
+    color:var(--grw-dark);
+    font-size:13.5px;
+    font-family:'Inter', sans-serif;
+  }
+  .form-success.is-visible{display:block;}
+
+  footer{
+    padding:24px 6vw;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--text-2);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:640px){
+    header{flex-direction:column; align-items:flex-start; gap:14px;}
+    .header-right{width:100%; justify-content:space-between;}
+    nav a{margin-left:0; margin-right:20px;}
+    .card-grid{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="dot"></span>ALEJANDRO MAIEROWICZ&nbsp;·&nbsp;<span data-lang="en">FRACTIONAL COO</span><span data-lang="es">COO FRACCIONAL</span></div>
+  <div class="header-right">
+    <nav>
+      <a href="#offerings" data-lang="en">Offerings</a>
+      <a href="#offerings" data-lang="es">Servicios</a>
+      <a href="#about" data-lang="en">About</a>
+      <a href="#about" data-lang="es">Sobre mí</a>
+      <a href="#contact" class="nav-cta" data-lang="en">Contact</a>
+      <a href="#contact" class="nav-cta" data-lang="es">Contacto</a>
+    </nav>
+    <div class="lang-switch">
+      <button type="button" data-lang-btn="en" class="active">EN</button>
+      <span class="sep">/</span>
+      <button type="button" data-lang-btn="es">ES</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="eyebrow" data-lang="en">Fractional COO for your software delivery</span>
+    <span class="eyebrow" data-lang="es">Fractional COO para el delivery de tu software</span>
+
+    <h1 data-lang="en">Protecting your <em>software delivery</em> and growing your most important <em>client relationships</em>.</h1>
+    <h1 data-lang="es">Protejo <em>tus entregas de software</em> y hago crecer tus más importantes <em>relaciones con clientes</em>.</h1>
+
+    <p class="sub" data-lang="en">I step in fractionally to strengthen delivery, sharpen commercial discipline, and support account growth — giving software consulting and delivery firms senior operating leadership without the cost of a full-time hire.</p>
+    <p class="sub" data-lang="es">Me sumo de forma fraccional para fortalecer el delivery, afinar la disciplina comercial y acompañar el crecimiento de cuentas — llevando liderazgo operativo senior a firmas de consultoría y delivery de software, sin el costo de una contratación a tiempo completo.</p>
+  </div>
+  <div class="hero-photo">
+    <img src="https://frac-coo.com/alejandro-photo.jpg" alt="Alejandro Maierowicz" />
+  </div>
+</section>
+
+<section class="offerings" id="offerings">
+  <div class="section-head">
+    <div>
+      <span class="section-tag" data-lang="en">What I help with</span>
+      <span class="section-tag" data-lang="es">En qué ayudo</span>
+      <h2 data-lang="en">Delivery, Operations &amp; Growth</h2>
+      <h2 data-lang="es">Delivery, Operaciones y Crecimiento</h2>
+    </div>
+    <p data-lang="en">Tap any card to see further detail.</p>
+    <p data-lang="es">Tocá cualquier tarjeta para ver más detalle.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item del"><span class="legend-dot"></span>Delivery</div>
+    <div class="legend-item ops">
+      <span class="legend-dot"></span>
+      <span data-lang="en">Operations</span><span data-lang="es">Operaciones</span>
+    </div>
+    <div class="legend-item grw">
+      <span class="legend-dot"></span>
+      <span data-lang="en">Growth</span><span data-lang="es">Crecimiento</span>
+    </div>
+  </div>
+
+  <!-- ===================== DELIVERY PANEL ===================== -->
+  <div class="cat-panel">
+    <div class="cat-panel-head">
+      <span class="legend-dot" style="background:var(--del-mid);"></span>
+      <h3>Delivery</h3>
+    </div>
+    <div class="card-grid">
+
+      <div class="flip-card cat-delivery" tabindex="0" role="button" aria-label="Program execution and governance, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Program execution &amp; governance</h3>
+            <h3 data-lang="es">Ejecución y gobernanza de programas</h3>
+            <p class="desc" data-lang="en">Running engagements end-to-end, with governance that keeps troubled programs stable.</p>
+            <p class="desc" data-lang="es">Gestiono los proyectos de punta a punta estabilizando aquellos programas que puedan estar en problemas.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Execution of software engagements</b></li>
+              <li><b>Delivery governance design</b> — clear roles, escalation paths, cadence</li>
+              <li><b>Program stabilization &amp; escalation recovery</b> — rebuild trust on a failing account</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Ejecución de proyectos de software</b></li>
+              <li><b>Diseño de gobernanza de delivery</b> — roles claros, vías de escalamiento, cadencia</li>
+              <li><b>Estabilización de programas escalados</b> — reconstruir la confianza durante una crisis</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-delivery" tabindex="0" role="button" aria-label="Team performance management, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Team performance management</h3>
+            <h3 data-lang="es">Gestión del desempeño del equipo</h3>
+            <p class="desc" data-lang="en">Keeping delivery teams accountable and clients close to the work.</p>
+            <p class="desc" data-lang="es">Mantengo a los equipos motivados y cerca del cliente,</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Team performance oversight</b></li>
+              <li><b>Client management</b> — day-to-day relationship on delivery matters</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Supervisión del desempeño del equipo</b></li>
+              <li><b>Gestión del cliente</b> — relación diaria en temas de delivery</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-delivery" tabindex="0" role="button" aria-label="Productivity and quality metrics, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Productivity &amp; quality metrics</h3>
+            <h3 data-lang="es">Métricas de productividad y calidad</h3>
+            <p class="desc" data-lang="en">A shared, honest view of delivery health.</p>
+            <p class="desc" data-lang="es">Una visión compartida y honesta de la salud del delivery.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>KPI framework</b> — a shared view of delivery health</li>
+              <li><b>Continuous improvement</b> — lightweight, sustainable practices</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>KPIs</b> — una visión compartida de la salud del delivery</li>
+              <li><b>Mejora continua</b> — prácticas livianas y sostenibles</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-delivery" tabindex="0" role="button" aria-label="Resourcing strategy, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Resourcing &amp; AI-enabled delivery</h3>
+            <h3 data-lang="es">Recursos y delivery con IA</h3>
+            <p class="desc" data-lang="en">The right mix of people, plus AI where it earns its place.</p>
+            <p class="desc" data-lang="es">La combinación correcta de personas, más IA donde realmente aporta valor.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Team composition strategy</b> — right mix of seniority and skill</li>
+              <li><b>AI-enabled delivery</b> — tailored AI strategy per account</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Estrategia de composición de equipos</b> — combinación correcta de seniority y habilidades</li>
+              <li><b>Delivery potenciado con IA</b> — estrategia de IA a medida por cuenta</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-delivery" tabindex="0" role="button" aria-label="Scope and change management, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Scope &amp; change management</h3>
+            <h3 data-lang="es">Gestión de alcance y cambios</h3>
+            <p class="desc" data-lang="en">Bounding engagements up front, and controlling how they evolve.</p>
+            <p class="desc" data-lang="es">Delimito los proyectos desde el inicio y controlo cómo evolucionan.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Product &amp; scope definition</b> — well-bounded engagements from day one</li>
+              <li><b>Solution &amp; engagement design</b> — structure the deal before signing</li>
+              <li><b>Change management</b> — controlling scope drift through the engagement</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Definición de producto y alcance</b> — bien delimitados desde el día uno</li>
+              <li><b>Diseño de solución y del acuerdo</b> — efectiva estructura del contrato</li>
+              <li><b>Gestión de cambios</b> — controlar el desvío de alcance durante el proyecto</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-delivery" tabindex="0" role="button" aria-label="Agility, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Agility</h3>
+            <h3 data-lang="es">Agilidad</h3>
+            <p class="desc" data-lang="en">Scaled, adaptive delivery cadence built for distributed teams.</p>
+            <p class="desc" data-lang="es">Una cadencia de delivery ágil y escalada, pensada para equipos distribuidos.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Scaled Agile (SAFe) transformation</b> leadership</li>
+              <li><b>Lightweight, adaptive cadence</b> for distributed teams</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Estrategia de agilidad adaptada al entorno</b></li>
+              <li><b>Cadencia liviana y adaptable</b> para equipos distribuidos</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== OPERATIONS PANEL ===================== -->
+  <div class="cat-panel">
+    <div class="cat-panel-head">
+      <span class="legend-dot" style="background:var(--ops-mid);"></span>
+      <h3 data-lang="en">Operations</h3>
+      <h3 data-lang="es">Operaciones</h3>
+    </div>
+    <div class="card-grid">
+
+      <div class="flip-card cat-operations" tabindex="0" role="button" aria-label="P&L and cost discipline, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">P&amp;L &amp; cost discipline</h3>
+            <h3 data-lang="es">P&amp;L y disciplina de costos</h3>
+            <p class="desc" data-lang="en">Margin, cost structure, and utilization, watched closely.</p>
+            <p class="desc" data-lang="es">Margen, estructura de costos y utilización, bajo seguimiento constante.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>P&amp;L ownership</b></li>
+              <li><b>Margin &amp; cost discipline</b></li>
+              <li><b>Resource utilization</b></li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Responsabilidad sobre el P&amp;L</b></li>
+              <li><b>Disciplina de margen y costos</b></li>
+              <li><b>Utilización de recursos</b></li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-operations" tabindex="0" role="button" aria-label="Operational governance and escalations, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Operational governance &amp; escalations</h3>
+            <h3 data-lang="es">Gobernanza operativa y escalamientos</h3>
+            <p class="desc" data-lang="en">A reporting and escalation rhythm leadership can rely on.</p>
+            <p class="desc" data-lang="es">Un ritmo de reportes y escalamientos en el que el liderazgo puede confiar.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Operational governance design</b></li>
+              <li><b>Reporting cadence</b> to leadership</li>
+              <li><b>Escalation frameworks</b></li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Diseño de gobernanza operativa</b></li>
+              <li><b>Cadencia de reporting</b></li>
+              <li><b>Marcos de escalamiento</b></li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-operations" tabindex="0" role="button" aria-label="Contract management and review, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Contract management &amp; review</h3>
+            <h3 data-lang="es">Gestión y revisión de contratos</h3>
+            <p class="desc" data-lang="en">Reading the contract you actually have, on a regular cadence.</p>
+            <p class="desc" data-lang="es">Releer el contrato que realmente tenés, con una cadencia regular.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Periodic contract review</b> cadence</li>
+              <li><b>Catching drift</b> in terms, SLAs and scope early</li>
+              <li><b>Keeping pricing &amp; deliverables aligned</b> with what was signed</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Cadencia periódica de revisión de contratos</b></li>
+              <li><b>Detección temprana de desvíos</b> en términos, SLAs y alcance</li>
+              <li><b>Precios y entregables alineados</b> con lo firmado</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-operations" tabindex="0" role="button" aria-label="Risk and contingency planning, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Risk &amp; contingency planning</h3>
+            <h3 data-lang="es">Riesgo y planificación de contingencias</h3>
+            <p class="desc" data-lang="en">Catching key-person and scope risk before it becomes the client's problem.</p>
+            <p class="desc" data-lang="es">Detectar riesgos de persona clave y de alcance antes de que se conviertan en un problema del cliente o un riesgo para el delivery.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Risk management</b> — catch issues before they escalate</li>
+              <li><b>Contingency planning</b> — protect against key-person, scope risk</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Gestión de riesgos</b> — detectar problemas antes de que escalen</li>
+              <li><b>Planificación de contingencias</b> — protección ante riesgos de persona clave y de alcance</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-operations" tabindex="0" role="button" aria-label="Compliance and audit readiness, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Compliance &amp; audit readiness</h3>
+            <h3 data-lang="es">Cumplimiento y preparación para auditorías</h3>
+            <p class="desc" data-lang="en">Meeting the governance bar clients' own audits expect.</p>
+            <p class="desc" data-lang="es">Cumplir con el estándar de gobernanza que esperan las auditorías del cliente.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Compliance &amp; governance alignment</b> — meet client audit standards</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Alineación de cumplimiento y gobernanza</b> — cumplir con los estándares de auditoría del cliente</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== GROWTH PANEL ===================== -->
+  <div class="cat-panel">
+    <div class="cat-panel-head">
+      <span class="legend-dot" style="background:var(--grw-mid);"></span>
+      <h3 data-lang="en">Growth</h3>
+      <h3 data-lang="es">Crecimiento</h3>
+    </div>
+    <div class="card-grid">
+
+      <div class="flip-card cat-growth" tabindex="0" role="button" aria-label="Account growth and expansion, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Account growth &amp; expansion</h3>
+            <h3 data-lang="es">Crecimiento y expansión de cuentas</h3>
+            <p class="desc" data-lang="en">Turning delivery credibility into a bigger, stickier relationship.</p>
+            <p class="desc" data-lang="es">Aprovechar la credibilidad del delivery para crecer el negocio.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Account farming &amp; expansion</b> — grow existing relationships</li>
+              <li><b>Executive relationship management</b> — a trusted senior point of contact</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Desarrollo y expansión de cuentas</b> — hacer crecer relaciones existentes</li>
+              <li><b>Gestión de relaciones ejecutivas</b> — un referente senior de confianza</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-growth" tabindex="0" role="button" aria-label="Pre-sales and proposal support, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Pre-sales &amp; proposal support</h3>
+            <h3 data-lang="es">Soporte de preventa y propuestas</h3>
+            <p class="desc" data-lang="en">Credible scoping that makes proposals easier to win.</p>
+            <p class="desc" data-lang="es">Un alcance creíble que facilita ganar propuestas.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Pre-sales support</b> on new and expansion opportunities</li>
+              <li><b>Stronger, better-positioned proposals</b></li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Soporte de preventa</b> en oportunidades nuevas y de expansión</li>
+              <li><b>Propuestas más sólidas y mejor posicionadas</b></li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card cat-growth" tabindex="0" role="button" aria-label="Commercial strategy and contracts, tap for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="flip-badge">↻</span>
+            <h3 data-lang="en">Commercial strategy &amp; contracts</h3>
+            <h3 data-lang="es">Estrategia comercial y contratos</h3>
+            <p class="desc" data-lang="en">Structuring and renegotiating the deals that fund the relationship.</p>
+            <p class="desc" data-lang="es">Estructurar y renegociar los acuerdos que sostienen la relación.</p>
+            <span class="flip-hint" data-lang="en">↻ Tap to see details</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para ver el detalle</span>
+          </div>
+          <div class="flip-face flip-back">
+            <ul data-lang="en">
+              <li><b>Contract structuring &amp; negotiation</b></li>
+              <li><b>Renewal &amp; renegotiation strategy</b> — defend pricing, realign scope</li>
+              <li><b>Commercial model transformation</b> — convert staff aug to managed teams</li>
+            </ul>
+            <ul data-lang="es">
+              <li><b>Estructuración y negociación de contratos</b></li>
+              <li><b>Estrategia de renovación y renegociación</b> — defender el precio, realinear el alcance</li>
+              <li><b>Transformación del modelo comercial</b> — de staff augmentation a equipos administrados</li>
+            </ul>
+            <span class="flip-hint" data-lang="en">↻ Tap to flip back</span>
+            <span class="flip-hint" data-lang="es">↻ Tocá para volver</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="about" id="about">
+  <div>
+    <span class="section-tag" data-lang="en">Background</span>
+    <span class="section-tag" data-lang="es">Trayectoria</span>
+    <h2 data-lang="en">30+ years running global delivery</h2>
+    <h2 data-lang="es">Más de 30 años liderando delivery global</h2>
+    <p data-lang="en">Alejandro is an IT executive with three decades leading software delivery and business development in multicultural, distributed environments. Most recently Head of Delivery at Cloud(X) — where he also leads the company's AI strategy from ideation through implementation, shaping its AI-enabled service offerings — and for twelve years VP of Delivery at Globant, where he directed 500+ engineers across the U.S., Latin America and Asia and grew two Fortune 500 accounts — including Autodesk and Rockwell Automation — to $45M in combined annual revenue.</p>
+    <p data-lang="es">Alejandro es un ejecutivo de IT con tres décadas liderando delivery de software y desarrollo de negocio en entornos multiculturales y distribuidos. Se desempeñó como Head of Delivery en Cloud(X) durante tres años — liderando además la estrategia de IA de la compañía de punta a punta y dando forma a su oferta de servicios habilitados por IA — y, durante doce años, como VP of Delivery en Globant, donde dirigió a más de 500 ingenieros en Estados Unidos, América Latina y Asia, y llevó dos cuentas Fortune 500 — incluyendo Autodesk y Rockwell Automation — a 45M de dólares en ingresos anuales combinados.</p>
+    <p class="role-line">Ex-Globant / Cloud(X)</p>
+  </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">30+</div>
+      <div class="label" data-lang="en">Years in delivery leadership</div>
+      <div class="label" data-lang="es">Años liderando delivery</div>
+    </div>
+    <div class="stat">
+      <div class="num">500+</div>
+      <div class="label" data-lang="en">Engineers directed at peak</div>
+      <div class="label" data-lang="es">Ingenieros dirigidos en el pico</div>
+    </div>
+    <div class="stat">
+      <div class="num">$45M</div>
+      <div class="label" data-lang="en">Combined revenue grown</div>
+      <div class="label" data-lang="es">Ingresos combinados generados</div>
+    </div>
+    <div class="stat">
+      <div class="num">$3M</div>
+      <div class="label" data-lang="en">New business sourced</div>
+      <div class="label" data-lang="es">Nuevo negocio generado</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 data-lang="en">Let's talk.</h2>
+  <h2 data-lang="es">Hablemos.</h2>
+  <p data-lang="en">Fill the contact form below or send me an email to alemaier@gmail.com</p>
+  <p data-lang="es">Completá el formulario de contacto o enviame un mail a alemaier@gmail.com</p>
+
+  <div class="contact-form-wrap">
+    <div id="form-success" class="form-success">
+      <span data-lang="en">Thanks — your message is in. I'll get back to you shortly.</span>
+      <span data-lang="es">¡Gracias! Recibí tu mensaje y te voy a responder a la brevedad.</span>
+    </div>
+
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mzebplqg" method="POST">
+      <div class="form-row">
+        <label for="email" data-lang="en">Email</label>
+        <label for="email" data-lang="es">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-row">
+        <label for="message" data-lang="en">Message</label>
+        <label for="message" data-lang="es">Mensaje</label>
+        <textarea id="message" name="message" required rows="4"></textarea>
+      </div>
+      <div id="form-error" class="form-error"></div>
+      <button type="submit" id="form-submit-btn" class="btn btn-primary">
+        <span data-lang="en">Send message</span>
+        <span data-lang="es">Enviar mensaje</span>
+      </button>
+    </form>
+  </div>
+
+  <div class="actions">
+    <a href="https://www.linkedin.com/in/alejandro-maierowicz-8247175" class="btn btn-ghost" target="_blank" rel="noopener">
+      <span data-lang="en">View on LinkedIn</span>
+      <span data-lang="es">Ver en LinkedIn</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span data-lang="en">© 2026 Alejandro Maierowicz — Fractional COO</span>
+  <span data-lang="es">© 2026 Alejandro Maierowicz — COO Fraccional</span>
+</footer>
+
+<script>
+  document.querySelectorAll('.flip-card').forEach(function(card){
+    function toggle(){ card.classList.toggle('is-flipped'); }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+    });
+  });
+</script>
+
+<script>
+  function fitFlipCardHeights(){
+    var cards = document.querySelectorAll('.flip-card');
+    if(!cards.length) return;
+    cards.forEach(function(card){
+      var width = card.getBoundingClientRect().width;
+      if(!width) return;
+      var cardMaxH = 0;
+      card.querySelectorAll('.flip-face').forEach(function(face){
+        var clone = face.cloneNode(true);
+        clone.style.position = 'static';
+        clone.style.visibility = 'hidden';
+        clone.style.pointerEvents = 'none';
+        clone.style.width = width + 'px';
+        clone.style.height = 'auto';
+        clone.style.overflow = 'visible';
+        clone.style.transform = 'none';
+        document.body.appendChild(clone);
+        var h = clone.offsetHeight;
+        if(h > cardMaxH) cardMaxH = h;
+        document.body.removeChild(clone);
+      });
+      if(cardMaxH > 0){
+        card.style.height = Math.ceil(cardMaxH) + 'px';
+      }
+    });
+  }
+
+  window.addEventListener('load', fitFlipCardHeights);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(fitFlipCardHeights);
+  }
+  var cardResizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(cardResizeTimer);
+    cardResizeTimer = setTimeout(fitFlipCardHeights, 150);
+  });
+  var langButtonsForResize = document.querySelectorAll('[data-lang-btn]');
+  langButtonsForResize.forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(fitFlipCardHeights, 20); });
+  });
+</script>
+
+<script>
+  var langButtons = document.querySelectorAll('[data-lang-btn]');
+  langButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.getAttribute('data-lang-btn');
+      document.body.classList.toggle('lang-es', lang === 'es');
+      document.documentElement.setAttribute('lang', lang);
+      langButtons.forEach(function(b){ b.classList.toggle('active', b === btn); });
+    });
+  });
+</script>
+
+<script>
+  var form = document.getElementById('contact-form');
+  var successEl = document.getElementById('form-success');
+  var errorEl = document.getElementById('form-error');
+  var submitBtn = document.getElementById('form-submit-btn');
+
+  var errorText = {
+    en: 'Something went wrong — please try again, or email me directly.',
+    es: 'Algo salió mal — probá de nuevo, o escribime directamente por email.'
+  };
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorEl.textContent = '';
+    submitBtn.setAttribute('disabled', 'true');
+
+    var lang = document.body.classList.contains('lang-es') ? 'es' : 'en';
+    var data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if(response.ok){
+        successEl.classList.add('is-visible');
+        form.style.display = 'none';
+      } else {
+        response.json().then(function(){
+          errorEl.textContent = errorText[lang];
+          submitBtn.removeAttribute('disabled');
+        }).catch(function(){
+          errorEl.textContent = errorText[lang];
+          submitBtn.removeAttribute('disabled');
+        });
+      }
+    }).catch(function(){
+      errorEl.textContent = errorText[lang];
+      submitBtn.removeAttribute('disabled');
+    });
+  });
+</script>
+
+</body>
+</html>
